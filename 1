@@ -1,0 +1,373 @@
+Program 1
+Date: 02.02.26
+Page No: 01
+
+1. Demonstrate and create project in local repository using git bash and github and apply init, status, log, add commands on repository.
+
+
+
+1. First install git on windows & create an account in github and login to the account
+
+
+2. Create new folder on desktop & copy its path
+
+
+3. Go to gitBash and type cd
+
+
+4. cd C:\Users\ANNAPUKNESHWARI\Desktop\DEVOPS
+
+
+5. Go to github and create a new repository with repository name as Program1 & click on create repository.
+
+
+6. Copy the URL of the remote repository
+
+
+7. In gitBash, git clone [paste URL]
+
+
+8. Initialize the empty repository in the folder git init
+cd program1
+
+
+9. Create a text file,
+
+
+10. nano first.txt
+
+
+
+Hello all
+
+Save the file (ctrl + s) & Exit (ctrl + x)
+
+11. git config --global user.email "vvce23cseaiml0036@vvce.ac.in"
+
+
+12. git config --global user.name "Kshryja"
+
+
+13. git config --global --list
+
+
+
+config - shows all config properties in the git environment.
+
+14. git add first.txt
+
+
+
+add - used to add changes from the working directory to the staging area which prepares them to be included in the next commit.
+
+
+---
+
+Page No: 02
+
+15. git status → to check the status of file
+
+
+16. git commit -m "This is my first commit"
+
+
+
+commit - used to capture a snapshot of project’s currently staged changes
+
+17. git status
+
+
+18. git push → upload commits from the local repository to a remote repository.
+
+
+19. Go to GitHub
+
+
+
+Edit the file → commit changes
+
+20. In gitBash,
+
+
+
+git pull → used to update local repository with the latest changes from a remote repository.
+
+21. nano first.txt
+
+
+
+Edit the file ctrl + s, ctrl + x
+
+22. git reset --hard
+
+
+
+reset → used to undo local changes in a git repository by moving the current branch’s pointer to a specified commit.
+
+23. nano first.txt ctrl + s, ctrl + x
+
+
+24. git status
+
+
+25. git log
+
+
+
+log - used to view the history of committed changes in a git repository.
+
+
+---
+
+Experiment No: 02
+Date: 09.02.26
+Page No: 03
+
+Name of Experiment: Branches in Git
+
+2. Demonstrate to create a project in remote repository and apply fork, merge, diff, merge conflict, branch and pull request concepts on repository using github.
+
+
+
+Create a fork at GitHub
+
+Copy the URL of Fork (copy of project)
+
+In Git bash:
+
+cd Desktop
+cd Devops
+
+git clone https://github.com/kshryja-s/sum.git (fork url)
+
+git init
+
+cd sum
+
+git config --global user.email "vvce23cseaiml041@vvce.ac.in"
+
+git config --user.name "kshryja-s"
+
+Git branch fk → create a new branch called fk
+
+Git checkout fk → move to fk branch from master branch
+
+Git branch → fk
+master
+
+nano file1.txt
+
+Git add file1.txt
+
+Git commit -m "file committed"
+
+
+---
+
+Page No: 04
+
+nano file2.txt
+
+git add file2.txt
+
+git commit -m "file 2 committed"
+
+Git checkout master
+
+Git merge fk (To merge the file we have to move to master branch because we can merge in master branch only)
+
+nano first.txt
+
+Git add first.txt
+
+Git commit -m "first text file committed"
+
+Git checkout fk (move to fk to create a new file in fk with same name but different content)
+
+Git add & commit
+
+Git push -u origin master
+
+Push all files from local to remote repository
+
+Git checkout master
+
+Git merge fk
+
+Git diff first.txt (It shows a difference b/w 2 files which have same file names).
+
+
+---
+
+Experiment No: 03
+Date: 16.02.26
+Page No: 05
+
+Name of Experiment: Jenkins
+
+Demonstrate the process of integration of github repository with Jenkins to automate the project execution in CI/CD pipeline
+
+1. Download and Install Java jdk 21
+
+
+
+Java JDK 21 file (search) for windows
+
+Windows x64 msi Installer (Download)
+
+Install it
+
+
+Add environment variables
+
+This PC → Local C → Program files → Java → JDK 21 → Bin
+
+Copy the path
+
+Environmental variable → path → new → paste the path → OK → OK → OK
+
+
+2. Jenkins Installation
+
+
+
+Search Jenkins Installation
+
+Download and deploy
+
+LTS (windows)
+
+
+Welcomes → next
+
+Destination folder → next
+
+Service Log on Credentials
+
+Run Service as Local System (not recommended)
+Post Selection
+[Test for] v → next
+
+Jenkin setup (change to 21)
+
+Custom Setup
+→ Firewall Exception
+→ will be installed on local harddrive
+  next → Install
+
+Chrome search:
+ localhost:8080
+
+• Copy the red link & copy the password
+• Paste in password section
+• Install suggested plugins
+
+→ Create first admin account
+• Username - 4VV23CI041
+• Password - lab309
+• Name - Kshruja.S
+• Email - [vvce23cseaim10036@vvce.ac.in](mailto:vvce23cseaim10036@vvce.ac.in)
+save & continue
+
+→ In GitHub
+• Create new repository name - program 3
+• Copy the link
+
+→ In Git bash
+• open the devops folder, configure & paste the url
+
+---
+
+→ In VS code, write a code & save in the devops folder - program 3
+
+→ To add all the files in that folder the command is gitadd.
+
+→ Add the saved code in git bash
+
+```bash
+$ git add hello.java
+$ git commit -m "committed"
+$ git push
+```
+
+→ In Jenkins tab,
+• add new item, name - prog, freestyle project → ok
+
+* Source code management → git → paste repo url →
+  change to */main.
+
+* Add build step → select execute windows batch command → javac hello.java → apply → save
+
+* Build Now → check green tick mark should appear.
+
+Experiment No. 04
+Date: 02.03.26
+Name of Experiment: Maven
+
+Create a maven project with all dependencies required for the application with CI/CD pipeline
+
+Maven → automation tool to build CI/CD application
+
+Open Eclipse
+→ File → New → Maven Project → Next
+ → filter: org.apache.maven
+ → maven-archetype-quickstart 1.5 version
+ → Next
+ → Group ID: exp11
+ → artifactID: exp11
+ → Finish
+ → Type ‘g’ in console - Build success
+
+In exp11, find pom.xml
+
+→ Go to browser search “maven repository”
+→ Click first link, search “simple json”
+→ Click first one, open version 1.1.1, copy the code b/w
+`<dependency>` to `</dependency>`
+→ Paste the code in line 33
+→ Save the file
+
+In src/test/java right click → new → class
+
+Name: Exp11 → Finish
+Then type
+
+```java id="1r9m2q"
+public class Exp11 {
+    public static void main(String[] args) throws
+    IOException, ParseException, org.json.simple.parser
+    ParseException {
+
+        JSONParser jsonparser = new JSONParser();
+
+        FileReader fileReader = new FileReader
+        (".\\jsonfile\\emp.json");
+
+        Object obj = jsonparser.parse(fileReader);
+
+        JSONObject empObj = (JSONObject)obj;
+
+        String fname = (String) empObj.get("firstname");
+
+        String lname = (String) empObj.get("lastname");
+
+        System.out.println("Firstname :" + fname);
+    }
+}
+```
+
+right click on exp11 → new folder → Name: jsonfile
+right click on jsonfile → new file → Name: emp.json
+
+Type →
+
+```json id="3v7f1m"
+{
+    "firstname" : "kshruja",
+    "lastname" : "srinivas"
+}
+```
+
+Save & RUN the program.
+
+
